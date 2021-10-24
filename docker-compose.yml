@@ -2,15 +2,19 @@ version: '3'
 
 services:
   fivem:
-    image: spritsail/fivem
+    image: ghcr.io/johnfawkes/fivem:master
     container_name: fivem
     restart: always
     stdin_open: true
     tty: true
     volumes:
-      - "/path/to/resources/folder:/config"
+      - "./data/config:/config"
     ports:
       - "30120:30120"
       - "30120:30120/udp"
+      - "40120:40120"
+      - "40120:40120/udp"
     environment:
       LICENSE_KEY: "license-key-here"
+      NO_DEFAULT_CONFIG: 1
+
